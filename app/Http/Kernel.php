@@ -22,7 +22,9 @@ class Kernel extends HttpKernel
         \App\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
     ];
-
+    protected $middlewareAliases = [
+        'is_mj' => \App\Http\Middleware\VerifyIsMJ::class,
+    ];
     /**
      * The application's route middleware groups.
      *

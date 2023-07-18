@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateInventairesTable extends Migration
+class CreatePnjsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateInventairesTable extends Migration
      */
     public function up()
     {
-        Schema::create('inventaires', function (Blueprint $table) {
+        Schema::create('pnjs', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('profession');
+            $table->string('');
             $table->foreignId('fk_org_id')
                 ->nullable()
                 ->references('id')
@@ -22,28 +25,16 @@ class CreateInventairesTable extends Migration
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE')
                 ->constrained();
-            $table->foreignId('fk_pnj_id')
+            $table->foreignId('fk_cmpts_id')
                 ->nullable()
                 ->references('id')
-                ->on('pnjs')
+                ->on('competences')
                 ->onUpdate('CASCADE')
                 ->onDelete('CASCADE')
                 ->constrained();
-            $table->foreignId('fk_pj_id')
-                ->nullable()
-                ->references('id')
-                ->on('personnage')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE')
-                ->constrained();
-            $table->foreignId('fk_item_id')
-                ->references('id')
-                ->on('items')
-                ->onUpdate('CASCADE')
-                ->onDelete('CASCADE')
-                ->constrained();
-            $table->float('argent');
+
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -54,6 +45,6 @@ class CreateInventairesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('inventaires');
+        Schema::dropIfExists('pnjs');
     }
 }

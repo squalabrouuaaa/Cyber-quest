@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePnjsTable extends Migration
+class CreateCompetenceLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class CreatePnjsTable extends Migration
      */
     public function up()
     {
-        Schema::create('pnjs', function (Blueprint $table) {
+        Schema::create('competence_levels', function (Blueprint $table) {
             $table->id();
+            $table->integer('level');
+            $table->integer('xp');
             $table->timestamps();
         });
     }
@@ -26,6 +28,6 @@ class CreatePnjsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pnjs');
+        Schema::dropIfExists('competence_levels');
     }
 }
