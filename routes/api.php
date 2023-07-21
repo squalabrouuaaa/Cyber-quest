@@ -25,3 +25,7 @@ Route::group([
 });
 
 Route::get('/user', [UserController::class, 'show']);
+Route::post('/register', [UserController::class, 'register']);
+Route::post('/login', [UserController::class, 'login']);
+
+Route::post('/dice/roll', [DiceController::class, 'basicRoll']);

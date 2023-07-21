@@ -17,7 +17,7 @@ class CreatePnjsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('profession');
-            $table->string('');
+            $table->integer('level');
             $table->foreignId('fk_org_id')
                 ->nullable()
                 ->references('id')
