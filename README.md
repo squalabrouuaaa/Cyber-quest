@@ -9,9 +9,9 @@
 
 ## Instalation et mise en place du projet 
 pour installer le projet il faut clone le projet puis executer les commande ci dessus 
-composer install 
-php artisan migrate
-php artisan serve
+ - composer install 
+ - php artisan migrate
+ - php artisan serve
 
 ## About Laravel
 
